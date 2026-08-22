@@ -1,0 +1,30 @@
+# Binaries
+bin/
+build/
+dist/
+*.exe
+
+# Dependency directories
+vendor/
+
+# IDE
+.idea/
+.vs/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Test coverage
+coverage.out
+coverage.html
+
+# Logs
+*.log
+
+# Go coverage cache
+.out
+
+# Test binary
+*.test

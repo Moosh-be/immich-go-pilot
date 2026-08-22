@@ -1,0 +1,8 @@
+version: 3
+languages:
+  go:
+    formatter: gofmt
+    linter: golangci-lint
+    test: go test
+    coverage: go test -cover
+    format: goimports -w

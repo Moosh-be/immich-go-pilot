@@ -1,0 +1,51 @@
+{
+	"name": "immich-go-pilot",
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"go.useLanguageServer": true,
+		"go.toolsManagement.autoUpdate": true,
+		"go.autocompleteUnimportedPackages": true,
+		"go.gocodePackageLookup": "auto",
+		"go.inferGomod": true,
+		"go.docsTool": "gogetdoc",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		},
+		"go.vetOnSave": "package",
+		"go.testFlags": ["-v"],
+		"go.coverOnSave": false,
+		"go.coverOnTestPackage": true,
+		"go.lintOnSave": "file",
+		"go.lintTool": "golangci-lint",
+		"go.formatTool": "goimports",
+		"go.delveConfig": {
+			"dlvLoadConfig": {
+				"followPointers": true,
+				"maxVariableRecurse": 1,
+				"maxStringLen": 120,
+				"maxArrayValues": 64,
+				"maxStructFields": -1
+			}
+		},
+		"go.defaultAddTags": {
+			"encoding/json": "json"
+		},
+		"go.alternateTools": {
+			"goCoverageViewer": "go-coverage"
+		},
+		"go.ignoreLifecycleChecks": false,
+		"go.usePlugin": {}
+	},
+	"extensions": {
+		"recommendations": [
+			"golang.go",
+			"ms-vscode.go-outline",
+			"ms-vscode.Go"
+		]
+	}
+}
