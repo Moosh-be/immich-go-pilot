@@ -1,8 +1,9 @@
 package main
 
 import (
+	"bytes"
 	"context"
-	"fmt"
+	"os/exec"
 )
 
 // App struct
@@ -15,13 +16,22 @@ func NewApp() *App {
 	return &App{}
 }
 
-// startup is called when the app starts. The context is saved
-// so we can call the runtime methods
+// startup is called when the app starts
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-// Greet returns a greeting for the given name
-func (a *App) Greet(name string) string {
-	return fmt.Sprintf("Hello %s, It's show time!", name)
+// Help runs immich-go -h and returns the output
+func (a *App) Help() (string, error) {
+	command := exec.Command("immich-go", "-h")
+	var stdout, stderr bytes.Buffer
+	command.Stdout = &stdout
+	command.Stderr = &stderr
+	err := command.Run()
+
+	output := stdout.String()
+	if stderr.Len() > 0 {
+		output += stderr.String()
+	}
+	return output, err
 }
