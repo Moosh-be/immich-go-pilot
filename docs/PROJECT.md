@@ -45,6 +45,16 @@ immich-go-pilot/
 - Gestion des erreurs reproductible
 - Logging détaillé
 
+## Configuration
+
+Avant de fonctionner, Immich-Pilot doit localiser **immich-go**. Le processus est :
+
+1. **Recherche locale** — l'outil scanne les chemins courants (`$GOPATH/bin`, `%LOCALAPPDATA%\Programs`, PATH) pour trouver `immich-go.exe`
+2. **Mémorisation** — le chemin trouvé est sauvegardé dans un fichier de config local `.config/immich-pilot.yaml`
+3. **Installation automatique** — si immich-go n'est pas trouvé, le tool le télécharge depuis son dépôt GitHub (release la plus récente pour Windows amd64) dans un dossier local `vendor/immich-go/`
+
+Cela garantit une expérience "prête à l'emploi" sans dépendre d'une installation manuelle.
+
 ## Objectif
 
 Rendre l'écosystème Immich accessible aux utilisateurs Windows qui n'ont pas la mainmise en ligne de commande, tout en gardant une transparence totale sur ce qui est exécuté — d'où l'idée du terminal visible comme WinCVS le faisait pour CVS.
