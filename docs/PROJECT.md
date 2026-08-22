@@ -4,7 +4,15 @@ Interface graphique pour **immich-go**, conçue pour Windows, avec un terminal i
 
 ## Concept
 
-Comme **WinCVS** affichait en temps réel les commandes CVS exécutées en arrière-plan, Immich-Pilot affiche toutes les commandes `immich-go` exécutées :
+Immich-Pilot est un **wrapper graphique** au-dessus de `immich-go`. Il expose un terminal intégré qui exécute réellement les commandes `immich-go`, mais dans un langage compréhensible pour le grand public — pas de syntaxe technique brute, des formulations naturelles.
+
+Quand l'utilisateur clique "Uploader mes photos de vacances", le terminal montre la commande `immich-go` équivalente, mais il a été formulée à partir d'un choix simple et clair.
+
+Le terminal affiche en temps réel :
+- API calls HTTP
+- Opérations sur les médias (upload, suppression, lecture)
+- Requêtes à l'API Immich
+- Migrations, transformations
 
 - API calls HTTP
 - Opérations sur les médias (upload, suppression, lecture)
@@ -25,12 +33,14 @@ immich-go-pilot/
 
 ## Fonctionnalités prévues
 
-### Terminal intégré (style WinCVS)
-- Affichage temps réel de chaque commande exécutée
+### Terminal intégré
+
+- Affichage temps réel des commandes `immich-go` exécutées
+- Formulation en langage naturel à la place de la syntaxe technique
 - Copier-coller des commandes pour débogage
 - Historique des commandes
 - Filtres par type (API, fichiers, erreurs)
-- Coloration syntaxique des commandes
+- Coloration syntaxique
 
 ### Interface principale
 - Navigation dans la bibliothèque Immich
@@ -78,4 +88,4 @@ instances:
 
 ### Objectif
 
-Rendre l'écosystème Immich accessible aux utilisateurs Windows qui n'ont pas la mainmise en ligne de commande, tout en gardant une transparence totale sur ce qui est exécuté — d'où l'idée du terminal visible comme WinCVS le faisait pour CVS.
+Rendre l'écosystème Immich accessible aux utilisateurs Windows en leur offrant une interface claire, un terminal transparent qui montre ce qui est exécuté, et des commandes exprimées dans un langage compréhensible — pas besoin de connaître `immich-go` ou sa syntaxe.
