@@ -55,6 +55,27 @@ Avant de fonctionner, Immich-Pilot doit localiser **immich-go**. Le processus es
 
 Cela garantit une expérience "prête à l'emploi" sans dépendre d'une installation manuelle.
 
-## Objectif
+### Gestion des instances
+
+Immich-Pilot supporte **plusieurs instances Immich**. Au premier lancement, une fonction propose de lister et configurer les instances disponibles :
+
+1. **Ajout d'une instance** — l'utilisateur donne un **nom** (ex: "Bureau", "Cloud") et l'**URL** de l'instance (`http://192.168.1.50:2283`)
+2. **Récupération des API Keys** — l'outil contacte l'instance pour lister les utilisateurs existants, puis récupère les API Keys associées
+3. **Sauvegarde** — chaque instance est stockée dans `.config/immich-pilot.yaml` avec son nom, URL et clés API
+4. **Switch rapide** — l'interface permet de basculer d'une instance à l'autre depuis un sélecteur
+
+Exemple de config résultante :
+
+```yaml
+instances:
+  - name: "Bureau"
+    url: "http://192.168.1.50:2283"
+    api_key: "abc123..."
+  - name: "Cloud"
+    url: "https://immich.monsite.fr"
+    api_key: "xyz789..."
+```
+
+### Objectif
 
 Rendre l'écosystème Immich accessible aux utilisateurs Windows qui n'ont pas la mainmise en ligne de commande, tout en gardant une transparence totale sur ce qui est exécuté — d'où l'idée du terminal visible comme WinCVS le faisait pour CVS.
