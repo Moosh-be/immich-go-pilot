@@ -32,7 +32,7 @@
 
 <script setup>
 import { ref, nextTick } from 'vue'
-import { Help } from '../../wailsjs/go/main/App'
+import { Help } from '@wails/go/main/App.js'
 
 const command = ref('')
 const lines = ref([
@@ -55,22 +55,17 @@ async function execute() {
   lines.value.push({ content: '...', type: 'loading' })
   await scrollToBottom()
 
-  try {
-    if (cmd === 'help' || cmd === '-h' || cmd === '--help') {
-      try {
-        const result = await Help()
-        if (result) {
-          result.split('\n').forEach(line => {
-            lines.value.push({ content: line, type: 'output' })
-          })
-        }
-      } catch (err) {
-        lines.value.push({ content: `Erreur: ${err}`, type: 'error' })
-    } else {
-      lines.value.push({ content: `Commande: ${cmd}`, type: 'output' })
+  if (cmd === 'help' || cmd === '-h' || cmd === '--help') {
+    try {
+      const result = await Help()
+      result.split('\n').forEach(line => {
+        lines.value.push({ content: line, type: 'output' })
+      })
+    } catch (err) {
+      lines.value.push({ content: `Erreur: ${err}`, type: 'error' })
     }
-  } catch (e) {
-    lines.value.push({ content: `Erreur: ${e}`, type: 'error' })
+  } else {
+    lines.value.push({ content: `Commande: ${cmd}`, type: 'output' })
   }
 
   await scrollToBottom()
